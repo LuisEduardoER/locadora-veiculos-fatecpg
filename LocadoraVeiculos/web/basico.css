@@ -1,0 +1,72 @@
+body {
+    font-family: arial;
+}
+div#logo {
+    background-color: #138900;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+    background: -webkit-linear-gradient(#269926, #0F5700);
+    background: -o-linear-gradient(#269926, #0F5700);
+    background: -moz-linear-gradient(#269926, #0F5700);
+    background: linear-gradient(#269926, #0F5700);
+}
+#logo span {
+    margin: 10px;
+    font-size: 30px;
+}
+#primeiroMenu {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#ultimoMenu {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+div#menu {
+    background-color: aqua;
+    border-radius: 10px;
+    width: 12em;
+    float: left;
+    height: 500px;
+    background-color: #138900;
+}
+#menu {
+    font-weight: bold;
+}
+#menu a {
+    display: block;
+    width: 12em;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    background-color: #138900;
+}
+#menu a:hover {
+    background-color: #389E28;
+}
+#menu ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+div#conteudo {
+    background-color: #DCE9D9;
+    position: absolute;
+    margin-left: 15px;
+    width: 82%;
+    height: 480px;
+    border-radius: 5px;
+    left: 200px;
+}
+#conteudo {
+    padding: 10px;
+}
+#cadastro td {
+    padding-right: 10px;
+}
+span#titulo {
+    font-weight: bold;
+    font-size: 20px;
+}
