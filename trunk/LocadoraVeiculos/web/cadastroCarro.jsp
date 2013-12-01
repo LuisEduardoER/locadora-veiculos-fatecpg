@@ -42,7 +42,7 @@
                         <select name="ano" value="2014">
                             <option selected="selected"></option>
                             <%for (int i = 1990; i <= 2014; i++) {%>
-                            <option><%=i%></option>
+                                <option><%=i%></option>
                             <%}%>
                         </select>
                     </td>
