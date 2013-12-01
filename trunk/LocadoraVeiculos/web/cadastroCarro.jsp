@@ -4,56 +4,67 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>LocaSystem - Cadastro de Carro</title>
-        <style>
-            body {
-                font-family: arial;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="basico.css"/>
     </head>
     <body>
-        <form action="" method="post">
-            <table>
-                <tr>
-                    <td>Modelo</td>
-                    <td><input type="text" name="modelo" size="50"/></td>
-                </tr>
-                <tr>
-                    <td>Marca</td>
-                    <td>
-                        <select name="marca">
-                            <option selected="selected"></option>
-                            <option>Chevrolet</option>
-                            <option>Fiat</option>
-                            <option>Ford</option>
-                            <option>Jac</option>
-                            <option>Honda</option>
-                            <option>Mitsubishi</option>
-                            <option>Nissan</option>
-                            <option>Peugeot</option>
-                            <option>Renault</option>
-                            <option>Toyota</option>
-                            <option>Volkswagen</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Ano</td>
-                    <td>
-                        <select name="ano" value="2014">
-                            <option selected="selected"></option>
-                            <%for (int i = 1990; i <= 2014; i++) {%>
-                                <option><%=i%></option>
-                            <%}%>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Placa</td>
-                    <td><input type="text" name="placa" size="12"/></td>
-                </tr>
-            </table>
-            <br/>
-            <input type="submit" value="Cadastrar"/>
-        </form>
+        <div id="logo">
+            <span>LocaSystem</span>
+        </div>
+        <br/>
+        <div id="menu">
+            <ul>
+                <li><a href="menuPrincipal.jsp" id="primeiroMenu">Home</a></li>
+                <li><a href="cadastroCarro.jsp">Cadastro de Carro</a></li>
+                <li><a href="cadastroPessoa.jsp">Cadastro de Pessoa</a></li>
+            </ul>
+        </div>
+        <div id="conteudo">
+            <span id="titulo">Cadastro de Carro</span>
+            <br/><br/>
+            <form action="" method="post">
+                <table>
+                    <tr>
+                        <td>Modelo</td>
+                        <td><input type="text" name="modelo" size="50"/></td>
+                    </tr>
+                    <tr>
+                        <td>Marca</td>
+                        <td>
+                            <select name="marca">
+                                <option selected="selected"></option>
+                                <option>Chevrolet</option>
+                                <option>Fiat</option>
+                                <option>Ford</option>
+                                <option>Jac</option>
+                                <option>Honda</option>
+                                <option>Mitsubishi</option>
+                                <option>Nissan</option>
+                                <option>Peugeot</option>
+                                <option>Renault</option>
+                                <option>Toyota</option>
+                                <option>Volkswagen</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ano</td>
+                        <td>
+                            <select name="ano" value="2014">
+                                <option selected="selected"></option>
+                                <%for (int i = 1990; i <= 2014; i++) {%>
+                                    <option><%=i%></option>
+                                <%}%>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Placa</td>
+                        <td><input type="text" name="placa" size="12"/></td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="submit" value="Cadastrar"/>
+            </form>
+        </div>
     </body>
 </html>
