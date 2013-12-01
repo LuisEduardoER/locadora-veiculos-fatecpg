@@ -14,16 +14,28 @@
         <form action="" method="post">
             <table>
                 <tr>
-                    <td>Nome completo</td>
+                    <td>Nome Completo</td>
                     <td><input type="text" name="nome"/></td>
                 </tr>
                 <tr>
-                    <td>Data de nascimento</td>
+                    <td>Email</td>
+                    <td><input type="text" name="email"/></td>
+                </tr>
+                <tr>
+                    <td>Senha</td>
+                    <td><input type="text" name="senha"/></td>
+                </tr>
+                <tr>
+                    <td>Confirmar Senha</td>
+                    <td><input type="text" name="confirmarSenha"/></td>
+                </tr>
+                <tr>
+                    <td>Data de Nascimento</td>
                     <td><input type="text" name="dataNascimento"/></td>
                 </tr>
                 <tr>
                     <td>Sexo</td>
-                    <td>
+                    <td colspan="2">
                         <input type="radio" name="sexo" value="masculino"/>Masculino
                         <input type="radio" name="sexo" value="feminino"/>Feminino
                     </td>
@@ -43,6 +55,14 @@
                     <td><input type="text" name="numero"/></td>
                     <td>Complemento</td>
                     <td><input type="text" name="complemento"/></td>
+                </tr>
+                <tr>
+                    <td>Telefone</td>
+                    <td><input type="text" name="telefone"/></td>
+                </tr>
+                <tr>
+                    <td>Celular</td>
+                    <td><input type="text" name="celular"/></td>
                 </tr>
             </table>
             <br/>

@@ -14,7 +14,7 @@
         </style>
     </head>
     <body>
-        <form action="cadastroCarro.jsp" method="post">
+        <form action="menuPrincipal.jsp" method="post">
             <table>
                 <tr>
                     <td class="labelLogin">Email</td>
