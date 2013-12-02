@@ -43,6 +43,9 @@ div#menu {
     text-decoration: none;
     text-align: center;
     background-color: #138900;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
 }
 #menu a:hover {
     background-color: #389E28;
