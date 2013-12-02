@@ -31,7 +31,19 @@ div#menu {
     width: 12em;
     float: left;
     height: 500px;
-    background-color: #138900;
+    //background-color: #138900;
+    background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #20B010),
+	color-stop(1, #032E02)
+    );
+    background-image: -o-linear-gradient(bottom, #20B010 0%, #032E02 100%);
+    background-image: -moz-linear-gradient(bottom, #20B010 0%, #032E02 100%);
+    background-image: -webkit-linear-gradient(bottom, #20B010 0%, #032E02 100%);
+    background-image: -ms-linear-gradient(bottom, #20B010 0%, #032E02 100%);
+    background-image: linear-gradient(to bottom, #20B010 0%, #032E02 100%);
 }
 #menu {
     font-weight: bold;
@@ -42,7 +54,7 @@ div#menu {
     color: white;
     text-decoration: none;
     text-align: center;
-    background-color: #138900;
+    //background-color: #138900;
     padding-top: 5px;
     padding-bottom: 5px;
     border-bottom: 1px solid white;
