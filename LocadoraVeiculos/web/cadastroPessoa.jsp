@@ -35,6 +35,10 @@
                         <td><input type="text" name="email"/></td>
                     </tr>
                     <tr>
+                        <td>Usuário</td>
+                        <td><input type="text" name="usuario"/></td>
+                    </tr>
+                    <tr>
                         <td>Senha</td>
                         <td><input type="text" name="senha"/></td>
                     </tr>
