@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>LocaSystem - Menu Principal</title>
+        <title>LocaSystem - Cadastro de Cor</title>
         <link rel="stylesheet" type="text/css" href="basico.css"/>
     </head>
     <body>
@@ -22,8 +22,16 @@
             </ul>
         </div>
         <div id="conteudo">
-            <span id="titulo">Seja bem-vindo!</span>
+            <span id="titulo">Cadastro de Cor</span>
             <br/><br/>
+            <table>
+                <tr>
+                    <td>Cor</td>
+                    <td><input type="text" name="cor"/></td>
+                </tr>
+            </table>
+            <br/>
+            <input type="submit" value="Cadastrar"/>
         </div>
     </body>
 </html>
