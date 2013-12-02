@@ -31,8 +31,8 @@
                         <td>
                             <select style="width: 200px">
                                 <option selected="selected"></option>
-                                <option>João</option>
-                                <option>Maria</option>
+                                <option>João Fonseca</option>
+                                <option>Maria Drummond</option>
                             </select>
                         </td>
                     </tr>
