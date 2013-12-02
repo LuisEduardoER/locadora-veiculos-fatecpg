@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>LocaSystem - Cadastro de Pessoa</title>
+        <title>LocaSystem - Cadastro de Usuário</title>
         <link rel="stylesheet" type="text/css" href="basico.css"/>
     </head>
     <body>
@@ -25,11 +25,11 @@
         </div>
         <div id="conteudo">
             <form action="" method="post">
-                <span id="titulo">Cadastro de Pessoa</span>
+                <span id="titulo">Cadastro de Usuário</span>
                 <br/><br/>
                 <table id="cadastro">
                     <tr>
-                        <td>Nome Completo</td>
+                        <td>Nome</td>
                         <td colspan="6"><input type="text" name="nome" size="60"/></td>
                     </tr>
                     <tr>
@@ -37,7 +37,7 @@
                         <td><input type="text" name="email"/></td>
                     </tr>
                     <tr>
-                        <td>Usuário</td>
+                        <td>Apelido</td>
                         <td><input type="text" name="usuario"/></td>
                     </tr>
                     <tr>
@@ -47,41 +47,6 @@
                     <tr>
                         <td>Confirmar Senha</td>
                         <td><input type="text" name="confirmarSenha"/></td>
-                    </tr>
-                    <tr>
-                        <td>Data de Nascimento</td>
-                        <td><input type="text" name="dataNascimento"/></td>
-                    </tr>
-                    <tr>
-                        <td>Sexo</td>
-                        <td colspan="2">
-                            <input type="radio" name="sexo" value="masculino"/>Masculino
-                            <input type="radio" name="sexo" value="feminino"/>Feminino
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>CPF</td>
-                        <td><input type="text" name="cpf" maxlength="8"/></td>
-                    </tr>
-                    <tr>
-                        <td>CEP</td>
-                        <td><input type="text" name="cep" maxlength="11"/></td>
-                    </tr>
-                    <tr>
-                        <td>Rua</td>
-                        <td><input type="text" name="rua"/></td>
-                        <td>Número</td>
-                        <td><input type="text" name="numero"/></td>
-                        <td>Complemento</td>
-                        <td><input type="text" name="complemento"/></td>
-                    </tr>
-                    <tr>
-                        <td>Telefone</td>
-                        <td><input type="text" name="telefone"/></td>
-                    </tr>
-                    <tr>
-                        <td>Celular</td>
-                        <td><input type="text" name="celular"/></td>
                     </tr>
                 </table>
                 <br/>
