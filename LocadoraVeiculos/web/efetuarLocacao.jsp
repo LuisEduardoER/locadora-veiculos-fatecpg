@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>LocaSystem - Cadastro de Carro</title>
+        <title>LocaSystem - Efetuar Locação</title>
         <link rel="stylesheet" type="text/css" href="basico.css"/>
     </head>
     <body>
@@ -22,40 +22,41 @@
             </ul>
         </div>
         <div id="conteudo">
-            <span id="titulo">Cadastro de Carro</span>
+            <span id="titulo">Efetuar Locação</span>
             <br/><br/>
             <form action="" method="post">
                 <table>
                     <tr>
-                        <td>Modelo</td>
-                        <td><input type="text" name="modelo" size="50"/></td>
-                    </tr>
-                    <tr>
-                        <td>Cor</td>
-                        <td><input type="text" name="cor"/></td>
-                    </tr>
-                    <tr>
-                        <td>Ano</td>
+                        <td>Cliente</td>
                         <td>
-                            <select name="ano" value="2014">
+                            <select>
                                 <option selected="selected"></option>
-                                <%for (int i = 1990; i <= 2014; i++) {%>
-                                    <option><%=i%></option>
-                                <%}%>
+                                <option>João</option>
+                                <option>Maria</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td>Placa</td>
-                        <td><input type="text" name="placa" size="12"/></td>
+                        <td>Carro</td>
+                        <td>
+                            <select>
+                                <option selected="selected"></option>
+                                <option>Gol 1.0 4p ABC-1234</option>
+                                <option>Celta 1.0 2p ABC-1223</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Chassi</td>
-                        <td><input type="text" name="chassi"/></td>
+                        <td>Data de Retirada</td>
+                        <td><input type="text" name="dataRetirada"/></td>
+                    </tr>
+                    <tr>
+                        <td>Data de Devolução</td>
+                        <td><input type="text" name="dataDevolucao"/></td>
                     </tr>
                 </table>
                 <br/>
-                <input type="submit" value="Cadastrar"/>
+                <input type="submit" value="Efetuar Locação"/>
             </form>
         </div>
     </body>
