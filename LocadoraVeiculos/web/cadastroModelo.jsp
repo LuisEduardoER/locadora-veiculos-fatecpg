@@ -24,7 +24,7 @@
         <div id="conteudo">
             <span id="titulo">Cadastro de Modelo</span>
             <br/><br/>
-            <table>
+            <table id="cadastro">
                 <tr>
                     <td>Modelo</td>
                     <td><input type="text" name="modelo"/></td>

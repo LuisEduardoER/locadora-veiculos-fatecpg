@@ -25,14 +25,27 @@
             <span id="titulo">Cadastro de Carro</span>
             <br/><br/>
             <form action="" method="post">
-                <table>
+                <table id="cadastro">
                     <tr>
                         <td>Modelo</td>
-                        <td><input type="text" name="modelo" size="50"/></td>
+                        <td>
+                            <select name="modelo" style="width: 200px">
+                                <option selected="selected"></option>
+                                <option>Gol 1.0 4p</option>
+                                <option>Celta 1.0 2p</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Cor</td>
-                        <td><input type="text" name="cor"/></td>
+                        <td>
+                            <select name="cor" style="width: 200px">
+                                <option selected="selected"></option>
+                                <option>Branco</option>
+                                <option>Preto</option>
+                                <option>Vermelho</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Ano</td>

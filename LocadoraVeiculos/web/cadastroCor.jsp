@@ -24,7 +24,7 @@
         <div id="conteudo">
             <span id="titulo">Cadastro de Cor</span>
             <br/><br/>
-            <table>
+            <table id="cadastro">
                 <tr>
                     <td>Cor</td>
                     <td><input type="text" name="cor"/></td>

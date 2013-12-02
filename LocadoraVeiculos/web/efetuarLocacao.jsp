@@ -25,11 +25,11 @@
             <span id="titulo">Efetuar Locação</span>
             <br/><br/>
             <form action="" method="post">
-                <table>
+                <table id="cadastro">
                     <tr>
                         <td>Cliente</td>
                         <td>
-                            <select>
+                            <select style="width: 200px">
                                 <option selected="selected"></option>
                                 <option>João</option>
                                 <option>Maria</option>
@@ -39,7 +39,7 @@
                     <tr>
                         <td>Carro</td>
                         <td>
-                            <select>
+                            <select style="width: 200px">
                                 <option selected="selected"></option>
                                 <option>Gol 1.0 4p ABC-1234</option>
                                 <option>Celta 1.0 2p ABC-1223</option>

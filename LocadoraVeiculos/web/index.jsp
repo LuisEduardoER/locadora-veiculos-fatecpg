@@ -8,25 +8,49 @@
             body {
                 font-family: arial;
             }
-            td.labelLogin {
+            span#titulo {
+                display: block;
+                background-color: darkgreen;
+                color: white;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                padding-left: 10px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+            div#login {
+                border: 2px solid darkgreen;
+                border-radius: 10px;
+                position: absolute;
+                width: 240px;
+            }
+            #login table {
+                margin: 10px;
+            }
+            #login td {
                 padding-right:10px;
+                padding-bottom: 5px;
             }
         </style>
     </head>
     <body>
-        <form action="menuPrincipal.jsp" method="post">
-            <table>
-                <tr>
-                    <td class="labelLogin">Email</td>
-                    <td><input type="text" name="email"/></td>
-                </tr>
-                <tr>
-                    <td class="labelLogin">Senha</td>
-                    <td><input type="text" name="senha"/></td>
-                </tr>
-            </table>
-            <br/>
-            <input type="submit" value="Entrar"/>
-        </form>
+        <div id="login">
+            <form action="menuPrincipal.jsp" method="post">
+                <span id="titulo"><b>Login - LocaSystem</b></span>
+                <br/><br/>
+                <table id="login">
+                    <tr>
+                        <td>Usuário</td>
+                        <td><input type="text" name="usuario"/></td>
+                    </tr>
+                    <tr>
+                        <td>Senha</td>
+                        <td><input type="text" name="senha"/></td>
+                    </tr>
+                    <td colspan="2" style="text-align: center"><input type="submit" value="Entrar"/></td>
+                </table>
+                <br/>
+            </form>
+        </div>
     </body>
 </html>
