@@ -1,4 +1,35 @@
+<%@page import="java.sql.Types"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" import="database.Conexao"%>
+<%@page import = "java.sql.Connection,
+                  java.sql.ResultSet,
+                  java.sql.Statement"%>
+
+<%
+    if (request.getParameter("txtModelo") != null) {
+        String modelo = request.getParameter("txtModelo");
+        String marcaId = request.getParameter("cbxMarca");
+        if (modelo.trim().length() > 1 && marcaId.trim().length() > 1) {
+            try {
+                Conexao conexao = new Conexao();
+                Connection con = conexao.getConnection();
+                Statement stmt = con.createStatement();
+                int res = stmt.executeUpdate("INSERT INTO tb_modelo (MARCAID, NOME) " +
+                                             " VALUES (" + marcaId + ", '" + modelo + "') ");
+                if (res == 1) {
+                    out.println("Cadastrado com sucesso!");
+                } else {
+                    out.println("Falha no cadastro.");
+                }
+
+                conexao.close();
+            } catch (Exception ex) {
+                out.println(ex.getMessage());
+            }
+        }
+    }
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,35 +55,40 @@
             </ul>
         </div>
         <div id="conteudo">
-            <span id="titulo">Cadastro de Modelo</span>
-            <br/><br/>
-            <table id="cadastro">
-                <tr>
-                    <td>Modelo</td>
-                    <td><input type="text" name="modelo"/></td>
-                </tr>
-                <tr>
-                    <td>Marca</td>
-                    <td>
-                        <select name="marca">
-                            <option selected="selected"></option>
-                            <option>Chevrolet</option>
-                            <option>Fiat</option>
-                            <option>Ford</option>
-                            <option>Jac</option>
-                            <option>Honda</option>
-                            <option>Mitsubishi</option>
-                            <option>Nissan</option>
-                            <option>Peugeot</option>
-                            <option>Renault</option>
-                            <option>Toyota</option>
-                            <option>Volkswagen</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <br/>
-            <input type="submit" value="Cadastrar"/>
+            <form method="get" action="cadastroModelo.jsp">
+                <span id="titulo">Cadastro de Modelo</span>
+                <br/><br/>
+                <table id="cadastro">
+                    <tr>
+                        <td>Modelo</td>
+                        <td><input type="text" name="txtModelo"/></td>
+                    </tr>
+                    <tr>
+                        <td>Marca</td>
+                        <td>
+                            <select name="cbxMarca">
+                                <option selected="selected"></option>
+                                <%
+                                    Conexao conexao = new Conexao();
+                                    Connection con = conexao.getConnection();
+                                    Statement st = con.createStatement();
+                                    ResultSet rs = st.executeQuery(
+                                            "SELECT ID, NOME FROM tb_marca ORDER BY NOME");
+
+                                    while (rs.next()) {
+                                        out.println("<option value='" + rs.getString("ID") + "'>" +
+                                                rs.getString("NOME") + "</option>");
+                                    }
+
+                                    conexao.close();
+                                %>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="submit" value="Cadastrar"/>
+            </form>
         </div>
     </body>
 </html>

@@ -1,4 +1,32 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" import="database.Conexao"%>
+<%@page import = "java.sql.Connection,
+                  java.sql.ResultSet,
+                  java.sql.Statement"%>
+<%
+    if (request.getParameter("txtMarca") != null) {
+        String marca = request.getParameter("txtMarca");
+        if (marca.trim().length() > 1) {
+            try {
+                Conexao conexao = new Conexao();
+                Connection con = conexao.getConnection();
+                Statement stmt = con.createStatement();
+                int res = stmt.executeUpdate("INSERT INTO tb_marca (NOME) VALUES ('" + marca + "')");
+
+                if (res == 1) {
+                    out.println("Marca cadastrada com sucesso!");
+                } else {
+                    out.println("Falha no cadastro.");
+                }
+
+                conexao.close();
+            } catch (Exception ex) {
+                out.println(ex.getMessage());
+            }
+        }
+    }
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,13 +52,13 @@
             </ul>
         </div>
         <div id="conteudo">
-            <form action="" method="post">
+            <form method="get" action="cadastroMarca.jsp">
                 <span id="titulo">Cadastro de Marca</span>
                 <br/><br/>
                 <table id="cadastro">
                     <tr>
                         <td>Marca</td>
-                        <td><input type="text" name="marca"/></td>
+                        <td><input type="text" name="txtMarca"/></td>
                     </tr>
                 </table>
                 <br/>

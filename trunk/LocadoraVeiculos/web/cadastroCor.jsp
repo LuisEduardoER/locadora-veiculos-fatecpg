@@ -1,4 +1,32 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" import="database.Conexao"%>
+<%@page import = "java.sql.Connection,
+                  java.sql.ResultSet,
+                  java.sql.Statement"%>
+<%
+    if (request.getParameter("txtCor") != null) {
+        String cor = request.getParameter("txtCor");
+        if (cor.trim().length() > 0) {
+            try {
+                Conexao conexao = new Conexao();
+                Connection con = conexao.getConnection();
+                Statement stmt = con.createStatement();
+                int res = stmt.executeUpdate("INSERT INTO tb_cor (NOME) VALUES ('" + cor + "')");
+
+                if (res == 1) {
+                    out.println("Cor cadastrada com sucesso!");
+                } else {
+                    out.println("Falha no cadastro.");
+                }
+
+                conexao.close();
+            } catch (Exception ex) {
+                out.println(ex.getMessage());
+            }
+        }
+    }
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,16 +52,18 @@
             </ul>
         </div>
         <div id="conteudo">
-            <span id="titulo">Cadastro de Cor</span>
-            <br/><br/>
-            <table id="cadastro">
-                <tr>
-                    <td>Cor</td>
-                    <td><input type="text" name="cor"/></td>
-                </tr>
-            </table>
-            <br/>
-            <input type="submit" value="Cadastrar"/>
+            <form method="get" action="cadastroCor.jsp">
+                <span id="titulo">Cadastro de Cor</span>
+                <br/><br/>
+                <table id="cadastro">
+                    <tr>
+                        <td>Cor</td>
+                        <td><input type="text" name="txtCor"/></td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="submit" value="Cadastrar"/>
+            </form>
         </div>
     </body>
 </html>
