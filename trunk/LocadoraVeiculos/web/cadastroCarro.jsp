@@ -128,7 +128,7 @@
                         <td><textarea style="resize: none;" rows="4" cols="50" name="txtDescricao" maxlength=8000"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Valor Diaria</td>
+                        <td>Valor Diária</td>
                         <td><input type="text" name="txtDiaria" maxlength="4"></td>
                     </tr>
                 </table>
