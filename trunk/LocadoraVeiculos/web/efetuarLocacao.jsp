@@ -1,22 +1,29 @@
+<%@page import="java.util.*"%>
+<%@page import="java.sql.Date"%>
+<%@page import="java.security.Timestamp"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page language="java" import="database.Conexao"%>
 <%@page import = "java.sql.Connection,
-                  java.sql.ResultSet,
-                  java.sql.Statement"%>
+        java.sql.ResultSet,
+        java.sql.Statement"%>
 <%
     if (request.getParameter("cbxCarro") != null) {
         String carroId = request.getParameter("cbxCarro");
         String clienteId = request.getParameter("cbxCliente");
-        if (carroId.trim().length() > 0 && clienteId.trim().length() > 0) {
+        String dataRetirada = request.getParameter("dataRetirada");
+        String dataDevolucao = request.getParameter("dataDevolucao");
+       
+        if (carroId.trim().length() > 0 && clienteId.trim().length() > 0
+                && dataDevolucao.trim().length() > 0 && dataRetirada.trim().length() > 0) {
             try {
                 Conexao conexao = new Conexao();
                 Connection con = conexao.getConnection();
                 Statement stmt = con.createStatement();
                 int res = stmt.executeUpdate(
-                        "INSERT INTO locacao " +
-                        " (CARROID, CLIENTEID, DATA_INICIO, DATA_ENTREGA) " +
-                        " VALUES " +
-                        " (" + carroId + ", " + clienteId + ", NULL, NULL)");
+                        "INSERT INTO locacao "
+                        + " (CARROID, CLIENTEID, DATA_INICIO, DATA_ENTREGA) "
+                        + " VALUES "
+                        + " (" + carroId + ", " + clienteId + "," + dataRetirada + "," + dataDevolucao + ")");
 
                 if (res == 1) {
                     out.println("Locação efetuada com sucesso!");
@@ -54,6 +61,8 @@
                 <li><a href="cadastroModelo.jsp">Cadastro de Modelo</a></li>
                 <li><a href="cadastroMarca.jsp">Cadastro de Marca</a></li>
                 <li><a href="cadastroCor.jsp">Cadastro de Cor</a></li>
+                 <li><a href="pesquisaCarro.jsp">Lista de Carros</a></li>
+                <li><a href="pesquisaCliente.jsp">Lista de Clientes</a></li>
             </ul>
         </div>
         <div id="conteudo">
@@ -64,20 +73,20 @@
                     <tr>
                         <td>Cliente</td>
                         <td>
-                            <select style="width: 200px">
-                                <option selected="selected" name="cbxCliente"></option>
+                            <select style="width: 200px" name="cbxCliente">
+                                <option selected="selected" ></option>
                                 <%
                                     Conexao conexao = new Conexao();
                                     Connection con = conexao.getConnection();
                                     Statement st = con.createStatement();
                                     ResultSet rs = st.executeQuery(
-                                            "SELECT ID, NOME " +
-                                            " FROM tb_cliente " +
-                                            " ORDER BY NOME");
+                                            "SELECT ID, NOME "
+                                            + " FROM tb_cliente "
+                                            + " ORDER BY NOME");
 
                                     while (rs.next()) {
-                                        out.println("<option value='" + rs.getString("ID") + "'>" +
-                                                rs.getString("NOME") + "</option>");
+                                        out.println("<option value='" + rs.getString("ID") + "'>"
+                                                + rs.getString("NOME") + "</option>");
                                     }
 
                                     conexao.close();
@@ -95,14 +104,14 @@
                                     con = conexao.getConnection();
                                     st = con.createStatement();
                                     rs = st.executeQuery(
-                                            "SELECT C.ID, CONCAT(M.NOME, ' ', C.PLACA) CARRO " +
-                                            " FROM tb_carro C " +
-                                            " INNER JOIN tb_modelo M ON (M.ID = C.MODELOID) " +
-                                            " ORDER BY M.NOME");
+                                            "SELECT C.ID, CONCAT(M.NOME, ' ', C.PLACA) CARRO "
+                                            + " FROM tb_carro C "
+                                            + " INNER JOIN tb_modelo M ON (M.ID = C.MODELOID) "
+                                            + " ORDER BY M.NOME");
 
                                     while (rs.next()) {
-                                        out.println("<option value='" + rs.getString("ID") + "'>" +
-                                                rs.getString("CARRO") + "</option>");
+                                        out.println("<option value='" + rs.getString("ID") + "'>"
+                                                + rs.getString("CARRO") + "</option>");
                                     }
 
                                     conexao.close();
