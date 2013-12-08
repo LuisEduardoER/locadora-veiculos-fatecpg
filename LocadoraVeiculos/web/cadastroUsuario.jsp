@@ -1,4 +1,47 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" import="database.Conexao"%>
+<%@page import = "java.sql.Connection,
+                  java.sql.ResultSet,
+                  java.sql.Statement"%>
+<%
+    if (request.getParameter("txtNome") != null) {
+        String nome = request.getParameter("txtNome");
+        String email = request.getParameter("txtEmail");
+        String usuario = request.getParameter("txtUsuario");
+        String senha = request.getParameter("txtSenha");
+        String senha2 = request.getParameter("txtConfirmarSenha");
+        
+        if (senha != senha2) {
+            out.println("As senhas não coincidem!");
+            return;
+        }
+        
+        if (nome.trim().length() > 0 && email.trim().length() > 0 && usuario.trim().length() > 0
+                && senha.trim().length() > 0) {
+            try {
+                Conexao conexao = new Conexao();
+                Connection con = conexao.getConnection();
+                Statement stmt = con.createStatement();
+                int res = stmt.executeUpdate(
+                        "INSERT INTO tb_usuario " +
+                        " (NOME, APELIDO, EMAIL, SENHA) " +
+                        " VALUES " +
+                        " ('" + nome + "', '" + usuario + "', '" + email + "', '" + senha + "')");
+
+                if (res == 1) {
+                    out.println("Cadastrado com sucesso!");
+                } else {
+                    out.println("Falha no cadastro.");
+                }
+
+                conexao.close();
+            } catch (Exception ex) {
+                out.println(ex.getMessage());
+            }
+        }
+    }
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,23 +73,23 @@
                 <table id="cadastro">
                     <tr>
                         <td>Nome</td>
-                        <td colspan="6"><input type="text" name="nome" size="60"/></td>
+                        <td colspan="6"><input type="text" name="txtNome" size="60"/></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="text" name="email"/></td>
+                        <td><input type="text" name="txtEmail"/></td>
                     </tr>
                     <tr>
                         <td>Apelido</td>
-                        <td><input type="text" name="usuario"/></td>
+                        <td><input type="text" name="txtUsuario"/></td>
                     </tr>
                     <tr>
                         <td>Senha</td>
-                        <td><input type="text" name="senha"/></td>
+                        <td><input type="text" name="txtSenha"/></td>
                     </tr>
                     <tr>
                         <td>Confirmar Senha</td>
-                        <td><input type="text" name="confirmarSenha"/></td>
+                        <td><input type="text" name="txtConfirmarSenha"/></td>
                     </tr>
                 </table>
                 <br/>
