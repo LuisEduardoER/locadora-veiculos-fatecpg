@@ -15,7 +15,7 @@
         String usuario = request.getParameter("txtUsuario");
         String senha = request.getParameter("txtSenha");
         
-        boolean senhaVazia = (senha.trim().length() == 0);
+        boolean senhaVazia = (senha == null || senha.trim().length() == 0);
 
         if (usuario.trim().length() > 0) {
             try {
