@@ -6,7 +6,7 @@ div#logo {
     color: white;
     border-radius: 5px;
     width: 100%;
-    height: 50px;
+    height: 40px;
     background: -webkit-linear-gradient(#269926, #0F5700);
     background: -o-linear-gradient(#269926, #0F5700);
     background: -moz-linear-gradient(#269926, #0F5700);
@@ -26,13 +26,13 @@ div#logo {
     border-bottom-right-radius: 10px;
 }
 div#menu {
-    background-color: aqua;
+    //background-color: aqua;
     border-radius: 10px;
     width: 12em;
     float: left;
     height: 500px;
-    //background-color: #138900;
-    background-image: -webkit-gradient(
+    background-color: #138900;
+    /*background-image: -webkit-gradient(
 	linear,
 	left top,
 	left bottom,
@@ -43,7 +43,7 @@ div#menu {
     background-image: -moz-linear-gradient(bottom, #20B010 0%, #032E02 100%);
     background-image: -webkit-linear-gradient(bottom, #20B010 0%, #032E02 100%);
     background-image: -ms-linear-gradient(bottom, #20B010 0%, #032E02 100%);
-    background-image: linear-gradient(to bottom, #20B010 0%, #032E02 100%);
+    background-image: linear-gradient(to bottom, #20B010 0%, #032E02 100%);*/
 }
 #menu {
     font-weight: bold;
@@ -85,4 +85,7 @@ div#conteudo {
 span#titulo {
     font-weight: bold;
     font-size: 20px;
+}
+.upper {
+    text-transform: uppercase;
 }
