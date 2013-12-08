@@ -21,6 +21,8 @@
                 <li><a href="cadastroModelo.jsp">Cadastro de Modelo</a></li>
                 <li><a href="cadastroMarca.jsp">Cadastro de Marca</a></li>
                 <li><a href="cadastroCor.jsp">Cadastro de Cor</a></li>
+                 <li><a href="pesquisaCarro.jsp">Lista de Carros</a></li>
+                <li><a href="pesquisaCliente.jsp">Lista de Clientes</a></li>
             </ul>
         </div>
         <div id="conteudo">

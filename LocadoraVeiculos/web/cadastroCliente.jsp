@@ -1,41 +1,43 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page language="java" import="database.Conexao"%>
 <%@page import = "java.sql.Connection,
-                  java.sql.ResultSet,
-                  java.sql.Statement"%>
+        java.sql.ResultSet,
+        java.sql.Statement"%>
 <%
-    if (request.getParameter("txtNome") != null) {
-        String nome = request.getParameter("txtNome");
-        String email = request.getParameter("txtEmail");
-        String cpf = request.getParameter("txtCpf");
-        String cep = request.getParameter("txtCep");
-        String endereco = request.getParameter("txtEndereco");
-        String telefone = request.getParameter("txtTelefone");
-        String celular = request.getParameter("txtCelular");
-        if (nome.trim().length() > 0 && email.trim().length() > 0 && cpf.trim().length() > 0) {
-            try {
-                Conexao conexao = new Conexao();
-                Connection con = conexao.getConnection();
-                Statement stmt = con.createStatement();
-                int res = stmt.executeUpdate(
-                        "INSERT INTO tb_cliente " +
-                        " (NOME, CPF_CNPJ, EMAIL, TELEFONE, CELULAR, ENDERECO, CEP) " +
-                        " VALUES " +
-                        " ('" + nome + "', '" + cpf + "', '" + email + "', '" + telefone + "'," +
-                        " '" + celular + "', '" + endereco + "', '" + cep + "')");
+    
+        if (request.getParameter("txtNome") != null) {
+            String nome = request.getParameter("txtNome");
+            String email = request.getParameter("txtEmail");
+            String cpf = request.getParameter("txtCpf");
+            String cep = request.getParameter("txtCep");
+            String endereco = request.getParameter("txtEndereco");
+            String telefone = request.getParameter("txtTelefone");
+            String celular = request.getParameter("txtCelular");
+            if (nome.trim().length() > 0 && email.trim().length() > 0 && cpf.trim().length() > 0) {
+                try {
+                    Conexao conexao = new Conexao();
+                    Connection con = conexao.getConnection();
+                    Statement stmt = con.createStatement();
+                    int res = stmt.executeUpdate(
+                            "INSERT INTO tb_cliente "
+                            + " (NOME, CPF_CNPJ, EMAIL, TELEFONE, CELULAR, ENDERECO, CEP) "
+                            + " VALUES "
+                            + " ('" + nome + "', '" + cpf + "', '" + email + "', '" + telefone + "',"
+                            + " '" + celular + "', '" + endereco + "', '" + cep + "')");
 
-                if (res == 1) {
-                    out.println("Cadastrado com sucesso!");
-                } else {
-                    out.println("Falha no cadastro.");
+                    if (res == 1) {
+                        out.println("Cadastrado com sucesso!");
+                    } else {
+                        out.println("Falha no cadastro.");
+                    }
+
+                    conexao.close();
+                } catch (Exception ex) {
+                    out.println(ex.getMessage());
                 }
-
-                conexao.close();
-            } catch (Exception ex) {
-                out.println(ex.getMessage());
             }
         }
-    }
+    
 %>
 
 <!DOCTYPE html>
@@ -60,6 +62,8 @@
                 <li><a href="cadastroModelo.jsp">Cadastro de Modelo</a></li>
                 <li><a href="cadastroMarca.jsp">Cadastro de Marca</a></li>
                 <li><a href="cadastroCor.jsp">Cadastro de Cor</a></li>
+                 <li><a href="pesquisaCarro.jsp">Lista de Carros</a></li>
+                <li><a href="pesquisaCliente.jsp">Lista de Clientes</a></li>
             </ul>
         </div>
         <div id="conteudo">
@@ -97,7 +101,8 @@
                     </tr>
                 </table>
                 <br/>
-                <input type="submit" value="Cadastrar"/>
+                <input type="submit" value="Cadastrar" name="cadastrar"/>
+                <input type="submit" value="Pesquisar" name="pesquisar">
             </form>
         </div>
     </body>

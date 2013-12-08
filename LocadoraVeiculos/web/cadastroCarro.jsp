@@ -1,8 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page language="java" import="database.Conexao"%>
 <%@page import = "java.sql.Connection,
-                  java.sql.ResultSet,
-                  java.sql.Statement"%>
+        java.sql.ResultSet,
+        java.sql.Statement"%>
 <%
     if (request.getParameter("cbxModelo") != null) {
         String modeloId = request.getParameter("cbxModelo");
@@ -10,6 +10,7 @@
         String placa = request.getParameter("txtPlaca");
         String chassi = request.getParameter("txtChassi");
         String descricao = request.getParameter("txtDescricao");
+        String diaria = request.getParameter("txtDiaria");
         if (modeloId.trim().length() > 0 && placa.trim().length() > 0) {
             if (corId.trim().length() == 0) {
                 corId = "NULL";
@@ -19,11 +20,11 @@
                 Connection con = conexao.getConnection();
                 Statement stmt = con.createStatement();
                 int res = stmt.executeUpdate(
-                        "INSERT INTO tb_carro " +
-                        " (CORID, MODELOID, PLACA, CHASSI, DESCRICAO, DISPONIVEL) " +
-                        " VALUES " +
-                        " (" + corId + ", " + modeloId + ", '" + placa + "', '" + chassi + "'" +
-                        ", '" + descricao + "', 1) ");
+                        "INSERT INTO tb_carro "
+                        + " (CORID, MODELOID, PLACA, CHASSI, DESCRICAO, DISPONIVEL,DIARIA) "
+                        + " VALUES "
+                        + " (" + corId + ", " + modeloId + ", '" + placa + "', '" + chassi + "'"
+                        + ", '" + descricao + "', 1,"+diaria+")");
 
                 if (res == 1) {
                     out.println("Cadastrado com sucesso!");
@@ -61,6 +62,8 @@
                 <li><a href="cadastroModelo.jsp">Cadastro de Modelo</a></li>
                 <li><a href="cadastroMarca.jsp">Cadastro de Marca</a></li>
                 <li><a href="cadastroCor.jsp">Cadastro de Cor</a></li>
+                 <li><a href="pesquisaCarro.jsp">Lista de Carros</a></li>
+                <li><a href="pesquisaCliente.jsp">Lista de Clientes</a></li>
             </ul>
         </div>
         <div id="conteudo">
@@ -81,8 +84,8 @@
                                             "SELECT ID, NOME FROM tb_modelo ORDER BY NOME");
 
                                     while (rs.next()) {
-                                        out.println("<option value='" + rs.getString("ID") + "'>" +
-                                                rs.getString("NOME") + "</option>");
+                                        out.println("<option value='" + rs.getString("ID") + "'>"
+                                                + rs.getString("NOME") + "</option>");
                                     }
 
                                     conexao.close();
@@ -103,8 +106,8 @@
                                             "SELECT ID, NOME FROM tb_cor ORDER BY NOME");
 
                                     while (rs.next()) {
-                                        out.println("<option value='" + rs.getString("ID") + "'>" +
-                                                rs.getString("NOME") + "</option>");
+                                        out.println("<option value='" + rs.getString("ID") + "'>"
+                                                + rs.getString("NOME") + "</option>");
                                     }
 
                                     conexao.close();
@@ -123,6 +126,10 @@
                     <tr>
                         <td>Descrição</td>
                         <td><textarea style="resize: none;" rows="4" cols="50" name="txtDescricao" maxlength=8000"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Valor Diaria</td>
+                        <td><input type="text" name="txtDiaria" maxlength="4"></td>
                     </tr>
                 </table>
                 <br/>
