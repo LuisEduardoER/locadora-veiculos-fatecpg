@@ -95,7 +95,7 @@
                         <td>Senha</td>
                         <td><input type="password" name="txtSenha"/></td>
                     </tr>
-                    <td colspan="2" style="text-align: center"><input type="submit" value="Entrar" onclick="validarLogin();"/></td>
+                    <td colspan="2" style="text-align: center"><input type="submit" value="Entrar"/></td>
                 </table>
                 <br/>
             </form>
