@@ -93,7 +93,7 @@
                     </tr>
                     <tr>
                         <td>Senha</td>
-                        <td><input type="password" name="txtSenha"/></td>
+                        <td><input type="password" name="senha"/></td>
                     </tr>
                     <td colspan="2" style="text-align: center"><input type="submit" value="Entrar"/></td>
                 </table>

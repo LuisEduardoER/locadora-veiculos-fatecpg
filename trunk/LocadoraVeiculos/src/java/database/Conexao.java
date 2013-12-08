@@ -14,7 +14,7 @@ public class Conexao {
  
     public Conexao() {
         this.user = "root";
-        this.password = "shx19q";
+        this.password = "";
         connectionString = "jdbc:mysql://localhost:3306/locacar";
     }
  

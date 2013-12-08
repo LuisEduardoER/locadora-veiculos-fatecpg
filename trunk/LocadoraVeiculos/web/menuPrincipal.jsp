@@ -21,12 +21,17 @@
                 <li><a href="cadastroModelo.jsp">Cadastro de Modelo</a></li>
                 <li><a href="cadastroMarca.jsp">Cadastro de Marca</a></li>
                 <li><a href="cadastroCor.jsp">Cadastro de Cor</a></li>
-                 <li><a href="pesquisaCarro.jsp">Lista de Carros</a></li>
+                <li><a href="pesquisaCarro.jsp">Lista de Carros</a></li>
                 <li><a href="pesquisaCliente.jsp">Lista de Clientes</a></li>
             </ul>
         </div>
         <div id="conteudo">
             <span id="titulo">Seja bem-vindo!</span>
+            <p>LocaSystem é um sistema de locação de Veículos onde nele é possivel
+                realizar o cadastro de carros e clientes, marcas de carros, modelos.
+                Também possui uma tela onde é listada todas lista de carros disponiveis
+                para aluguel e a lista de nossos clientes.
+            </p>
             <br/><br/>
         </div>
     </body>
