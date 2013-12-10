@@ -23,7 +23,7 @@
                         "INSERT INTO locacao "
                         + " (CARROID, CLIENTEID, DATA_INICIO, DATA_ENTREGA) "
                         + " VALUES "
-                        + " (" + carroId + ", " + clienteId + "," + dataRetirada + "," + dataDevolucao + ")");
+                        + " (" + carroId + ", " + clienteId + ",'" + dataRetirada + "','" + dataDevolucao + "')");
 
                 if (res == 1) {
                     out.println("Locação efetuada com sucesso!");
